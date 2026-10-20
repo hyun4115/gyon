@@ -1,307 +1,374 @@
-<!-- GY:ON 공식 캐릭터 표시 수정 -->
-<script>
-(() => {
-  "use strict";
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GY:ON · 사이트 복구</title>
 
-  function fixCharacter() {
-    const original = document.getElementById("brandOriginal");
-    const mascot = document.getElementById("gyonMascot");
+  <!--
+    기존 index.html 내용을 전부 지우고 이 코드 전체를 붙여넣어 줘.
 
-    if (!original || !mascot) {
-      console.warn("GY:ON 원본 캐릭터를 찾지 못했어요.");
-      return;
+    확인한 흰 화면 원인:
+    사이트 전체 코드 대신 캐릭터 수정용 스크립트만 저장되어 있었어.
+
+    이 코드는 네 GitHub에 남아 있는 10월 19일 전체 버전을 불러와
+    사이트를 복구해. 그 버전의 디자인과 캐릭터로 돌아가며,
+    등록·수정·가상 결제 기능도 함께 불러와.
+
+    복구 후 아래의 '복구된 전체 코드 복사'를 누르면
+    원본을 다시 불러올 필요 없는 전체 HTML을 복사할 수 있어.
+    그 코드를 index.html에 다시 붙여넣으면 돼.
+  -->
+
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      background: #f5f7f0;
+      color: #244b40;
+      font-family: "Malgun Gothic", system-ui, sans-serif;
     }
 
-    /* 기존 캐릭터의 배경색이 사이트 배경과 섞이지 않게 조정 */
-    if (!document.getElementById("gyon-character-fix-style")) {
-      const style = document.createElement("style");
-      style.id = "gyon-character-fix-style";
-      style.textContent = `
-        .hero-art {
-          isolation: isolate;
-          position: relative;
-          display: flex;
-          align-items: flex-end;
-          justify-content: center;
-          min-height: 305px;
-          height: auto;
-          padding-top: 48px;
-          box-sizing: border-box;
-        }
-
-        .hero-art .mascot {
-          position: relative;
-          z-index: 2;
-          flex: 0 0 auto;
-          width: 170px !important;
-          height: 257px !important;
-          max-width: 100%;
-          margin: 0 !important;
-          align-self: flex-end;
-          mix-blend-mode: normal !important;
-          filter: none !important;
-          overflow: visible;
-        }
-
-        .mini-mascot,
-        .receipt .mascot,
-        .placeholder svg,
-        .empty svg {
-          mix-blend-mode: normal !important;
-          filter: none !important;
-        }
-
-        .character-stage {
-          z-index: 0;
-          bottom: 8px;
-          width: 235px;
-          height: 210px;
-          max-width: 95%;
-          background: #dcebd9;
-          border-radius: 48% 52% 44% 46%;
-          transform: rotate(-6deg);
-        }
-
-        .hero-art .speech {
-          z-index: 3;
-          top: 0;
-          left: 50%;
-          transform: translateX(-50%) rotate(-3deg);
-          width: max-content;
-          max-width: calc(100% - 16px);
-          box-sizing: border-box;
-          white-space: normal;
-          text-align: center;
-          line-height: 1.6;
-          padding: 11px 16px;
-          border-radius: 18px;
-          background: #fff;
-          color: #25463d;
-          border: 1px solid #dce7d9;
-          box-shadow: 0 5px 16px #284b3910;
-        }
-
-        .hero-art .hero-sticker {
-          z-index: 3;
-          right: 0;
-          bottom: 12px;
-          padding: 9px 12px;
-          border-radius: 12px;
-          background: #fff3bb;
-          color: #344b40;
-          transform: rotate(5deg);
-        }
-
-        @media (max-width: 600px) {
-          .hero-art {
-            min-height: 258px;
-            height: auto;
-            margin-top: 22px;
-            padding-top: 46px;
-          }
-
-          .hero-art .mascot {
-            width: 140px !important;
-            height: 212px !important;
-          }
-
-          .character-stage {
-            width: 205px;
-            height: 175px;
-          }
-
-          .hero-art .speech {
-            left: 50%;
-            top: 0;
-            font-size: 11px;
-          }
-
-          .hero-art .hero-sticker {
-            right: 0;
-            bottom: 8px;
-            font-size: 10px;
-          }
-
-          .hero-art .spark.one {
-            left: 8%;
-            top: 90px;
-          }
-
-          .hero-art .spark.two {
-            right: 8%;
-            top: 85px;
-          }
-        }
-      `;
-      document.head.appendChild(style);
+    .recovery {
+      width: min(100%, 470px);
+      padding: 38px 28px;
+      background: white;
+      border: 1px solid #e2e9dd;
+      border-radius: 26px;
+      box-shadow: 0 14px 50px #244b400a;
+      text-align: center;
     }
 
-    const source =
-      original.getAttribute("href") ||
-      original.getAttributeNS(
-        "http://www.w3.org/1999/xlink",
-        "href"
-      );
+    .brand {
+      font-size: 34px;
+      font-weight: 900;
+      letter-spacing: -2px;
+    }
 
-    if (!source) return;
+    .brand span { color: #439b7b; }
 
-    const image = new Image();
+    h1 {
+      margin: 24px 0 12px;
+      font-size: 21px;
+    }
 
-    image.onload = () => {
-      try {
-        /*
-         * 공식 이미지 안의 정면 캐릭터.
-         * 손 옆 하트가 잘리지 않도록 여백을 포함해 가져옴.
-         */
-        const crop = {
-          x: 562,
-          y: 88,
-          width: 195,
-          height: 295
-        };
+    p {
+      margin: 0;
+      color: #687d74;
+      line-height: 1.8;
+      font-size: 14px;
+      white-space: pre-line;
+    }
 
-        const canvas = document.createElement("canvas");
-        canvas.width = crop.width;
-        canvas.height = crop.height;
+    button {
+      margin-top: 22px;
+      padding: 12px 20px;
+      border: 0;
+      border-radius: 12px;
+      background: #285a48;
+      color: white;
+      font: inherit;
+      font-weight: 700;
+      cursor: pointer;
+    }
 
-        const context = canvas.getContext("2d", {
-          willReadFrequently: true
+    button:disabled {
+      cursor: wait;
+      opacity: .6;
+    }
+
+    .loader {
+      width: 30px;
+      height: 30px;
+      margin: 26px auto 0;
+      border: 3px solid #e4eee5;
+      border-top-color: #439b7b;
+      border-radius: 50%;
+      animation: spin .8s linear infinite;
+    }
+
+    [hidden] { display: none !important; }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .loader { animation: none; }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="recovery">
+    <div class="brand">GY<span>:ON</span></div>
+    <h1 id="heading">전체 사이트를 복구하고 있어</h1>
+    <p id="message" role="status">
+      GitHub에 저장된 이전 전체 코드를 불러오는 중이야.
+    </p>
+    <div id="loader" class="loader" aria-hidden="true"></div>
+    <button id="retry" type="button" hidden>다시 불러오기</button>
+  </main>
+
+  <script>
+    (() => {
+      "use strict";
+
+      // 실제 전체 HTML이 남아 있는 고정 버전.
+      const revision = "e85117637a6c933f4d15e62887ac2690277ab7ae";
+
+      const rawURL =
+        "https://raw.githubusercontent.com/hyun4115/gyon/" +
+        revision +
+        "/index.html";
+
+      const apiURL =
+        "https://api.github.com/repos/hyun4115/gyon/contents/index.html?ref=" +
+        revision;
+
+      let loading = false;
+
+      async function request(url, asJSON = false) {
+        const controller = new AbortController();
+        const timer = setTimeout(() => controller.abort(), 15000);
+
+        try {
+          const response = await fetch(url, {
+            signal: controller.signal,
+            cache: "no-store",
+            credentials: "omit"
+          });
+
+          if (!response.ok) {
+            throw new Error("불러오기 실패: HTTP " + response.status);
+          }
+
+          return asJSON
+            ? await response.json()
+            : await response.text();
+        } finally {
+          clearTimeout(timer);
+        }
+      }
+
+      function validate(html) {
+        if (typeof html !== "string" || html.length < 10000) {
+          throw new Error("전체 사이트 코드가 아니어서 복구를 중단했어.");
+        }
+
+        const parsed = new DOMParser().parseFromString(
+          html,
+          "text/html"
+        );
+
+        if (
+          !parsed.querySelector("form") ||
+          !parsed.querySelector("#gyonMascot") ||
+          !html.includes("openEditor")
+        ) {
+          throw new Error("필요한 화면과 기능을 확인하지 못했어.");
+        }
+
+        return html;
+      }
+
+      async function loadOriginal() {
+        try {
+          return validate(await request(rawURL));
+        } catch (firstError) {
+          // 원본 주소 연결에 실패하면 GitHub API로 한 번 더 시도.
+          const result = await request(apiURL, true);
+
+          if (
+            result.encoding !== "base64" ||
+            typeof result.content !== "string"
+          ) {
+            throw new Error("GitHub에서 전체 코드를 받지 못했어.");
+          }
+
+          const binary = atob(result.content.replace(/\s/g, ""));
+          const bytes = Uint8Array.from(
+            binary,
+            character => character.charCodeAt(0)
+          );
+
+          return validate(new TextDecoder().decode(bytes));
+        }
+      }
+
+      function addRecoveryTools(fullHTML) {
+        const panel = document.createElement("section");
+
+        panel.setAttribute("aria-label", "복구된 전체 코드");
+        panel.style.cssText = [
+          "position:fixed",
+          "left:12px",
+          "right:12px",
+          "bottom:12px",
+          "z-index:9999",
+          "max-width:700px",
+          "margin:auto",
+          "padding:16px",
+          "background:#fff",
+          "color:#244b40",
+          "border:1px solid #dce7dc",
+          "border-radius:18px",
+          "box-shadow:0 8px 40px #16392c26",
+          "font:13px/1.6 system-ui,sans-serif"
+        ].join(";");
+
+        panel.innerHTML = `
+          <strong>전체 사이트 코드를 불러왔어.</strong>
+          <p style="margin:5px 0 12px;color:#63766b">
+            아래에서 전체 코드를 복사해서 index.html에 저장하면,
+            다음부터는 이전 버전을 불러오는 과정 없이 열려.
+            서버 연결과 저장 결과는 사이트 안의 안내를 확인해 줘.
+          </p>
+
+          <div style="display:flex;gap:8px;flex-wrap:wrap">
+            <button type="button" data-action="copy">
+              복구된 전체 코드 복사
+            </button>
+            <button type="button" data-action="download">
+              index.html 저장
+            </button>
+            <button type="button" data-action="close">
+              닫기
+            </button>
+          </div>
+
+          <textarea
+            aria-label="복구된 전체 HTML 코드"
+            readonly
+            hidden
+            style="width:100%;height:150px;margin-top:12px;
+              padding:10px;border:1px solid #cddccf;
+              border-radius:10px;font:12px monospace"
+          ></textarea>
+
+          <p data-status role="status"
+             style="margin:8px 0 0;color:#356d51"></p>
+        `;
+
+        panel.querySelectorAll("button").forEach(button => {
+          button.style.cssText = [
+            "padding:10px 13px",
+            "border:0",
+            "border-radius:10px",
+            "background:#285a48",
+            "color:#fff",
+            "font:inherit",
+            "cursor:pointer"
+          ].join(";");
         });
 
-        if (!context) throw new Error("이미지 처리 기능 없음");
+        const status = panel.querySelector("[data-status]");
+        const textarea = panel.querySelector("textarea");
 
-        const scaleX = image.naturalWidth / 1536;
-        const scaleY = image.naturalHeight / 1024;
+        textarea.value = fullHTML;
 
-        context.drawImage(
-          image,
-          crop.x * scaleX,
-          crop.y * scaleY,
-          crop.width * scaleX,
-          crop.height * scaleY,
-          0,
-          0,
-          crop.width,
-          crop.height
-        );
+        panel.querySelector('[data-action="copy"]').onclick =
+          async () => {
+            try {
+              await navigator.clipboard.writeText(fullHTML);
+              status.textContent =
+                "복사했어! index.html 내용을 전부 지우고 붙여넣어 줘.";
+            } catch {
+              textarea.hidden = false;
+              textarea.focus();
+              textarea.select();
 
-        const pixels = context.getImageData(
-          0, 0, canvas.width, canvas.height
-        );
+              status.textContent =
+                "아래 코드가 선택됐어. Ctrl+C로 복사해 줘.";
+            }
+          };
 
-        const data = pixels.data;
-        const width = canvas.width;
-        const height = canvas.height;
-        const count = width * height;
+        panel.querySelector('[data-action="download"]').onclick =
+          () => {
+            const blob = new Blob([fullHTML], {
+              type: "text/html;charset=utf-8"
+            });
 
-        const visited = new Uint8Array(count);
-        const queue = new Uint32Array(count);
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement("a");
 
-        let head = 0;
-        let tail = 0;
+            link.href = url;
+            link.download = "index.html";
+            document.body.appendChild(link);
+            link.click();
+            link.remove();
 
-        /*
-         * 가장자리와 연결된 밝은 배경만 제거.
-         * 캐릭터의 진한 테두리 안에 있는 흰 옷과 눈은 보존.
-         */
-        function isBackground(index) {
-          const offset = index * 4;
+            setTimeout(() => URL.revokeObjectURL(url), 10000);
 
-          if (data[offset + 3] === 0) return true;
+            status.textContent =
+              "내려받은 index.html로 GitHub의 기존 파일을 교체하면 돼.";
+          };
 
-          const r = data[offset];
-          const g = data[offset + 1];
-          const b = data[offset + 2];
+        panel.querySelector('[data-action="close"]').onclick =
+          () => panel.remove();
 
-          return (
-            r > 185 &&
-            g > 195 &&
-            b > 195 &&
-            Math.max(r, g, b) - Math.min(r, g, b) < 55
-          );
-        }
-
-        function enqueue(index) {
-          if (visited[index]) return;
-          visited[index] = 1;
-
-          if (isBackground(index)) {
-            queue[tail++] = index;
-          }
-        }
-
-        for (let x = 0; x < width; x++) {
-          enqueue(x);
-          enqueue((height - 1) * width + x);
-        }
-
-        for (let y = 0; y < height; y++) {
-          enqueue(y * width);
-          enqueue(y * width + width - 1);
-        }
-
-        while (head < tail) {
-          const index = queue[head++];
-          const x = index % width;
-          const y = Math.floor(index / width);
-
-          data[index * 4 + 3] = 0;
-
-          if (x > 0) enqueue(index - 1);
-          if (x < width - 1) enqueue(index + 1);
-          if (y > 0) enqueue(index - width);
-          if (y < height - 1) enqueue(index + width);
-        }
-
-        context.putImageData(pixels, 0, 0);
-
-        /*
-         * 공용 캐릭터를 교체하면
-         * 메인·굿즈·가상 결제 화면에 함께 적용됨.
-         */
-        const namespace = "http://www.w3.org/2000/svg";
-        const cleanImage = document.createElementNS(
-          namespace,
-          "image"
-        );
-
-        cleanImage.setAttribute("width", String(width));
-        cleanImage.setAttribute("height", String(height));
-        cleanImage.setAttribute(
-          "href",
-          canvas.toDataURL("image/png")
-        );
-
-        mascot.setAttribute(
-          "viewBox",
-          `0 0 ${width} ${height}`
-        );
-        mascot.setAttribute(
-          "preserveAspectRatio",
-          "xMidYMid meet"
-        );
-        mascot.replaceChildren(cleanImage);
-      } catch (error) {
-        /* 처리 실패 시 기존 캐릭터를 유지 */
-        console.warn("캐릭터 배경 처리 실패:", error);
+        document.body.appendChild(panel);
       }
-    };
 
-    image.onerror = () => {
-      console.warn("캐릭터 원본 이미지를 읽지 못했어요.");
-    };
+      async function restore() {
+        if (loading) return;
+        loading = true;
 
-    image.src = source;
-  }
+        const heading = document.getElementById("heading");
+        const message = document.getElementById("message");
+        const loader = document.getElementById("loader");
+        const retry = document.getElementById("retry");
 
-  if (document.readyState === "loading") {
-    document.addEventListener(
-      "DOMContentLoaded",
-      fixCharacter,
-      { once: true }
-    );
-  } else {
-    fixCharacter();
-  }
-})();
-</script>
+        heading.textContent = "전체 사이트를 복구하고 있어";
+        message.textContent =
+          "GitHub에 저장된 이전 전체 코드를 불러오는 중이야.";
+
+        loader.hidden = false;
+        retry.hidden = true;
+
+        let fullHTML;
+
+        try {
+          fullHTML = await loadOriginal();
+        } catch (error) {
+          heading.textContent = "전체 코드를 불러오지 못했어";
+          message.textContent =
+            "인터넷 연결을 확인하고 다시 눌러 줘.\n" +
+            "이 복구 과정에서는 JSONBin 데이터를 변경하지 않아.\n\n" +
+            (error.name === "AbortError"
+              ? "GitHub 연결 시간이 초과됐어."
+              : error.message);
+
+          loader.hidden = true;
+          retry.hidden = false;
+          loading = false;
+          return;
+        }
+
+        // 네 저장소의 이전 전체 HTML로 현재 문서를 복구.
+        document.open();
+        document.write(fullHTML);
+        document.close();
+
+        if (document.readyState === "loading") {
+          document.addEventListener(
+            "DOMContentLoaded",
+            () => addRecoveryTools(fullHTML),
+            { once: true }
+          );
+        } else {
+          addRecoveryTools(fullHTML);
+        }
+      }
+
+      document.getElementById("retry").onclick = restore;
+      restore();
+    })();
+  </script>
+</body>
+</html>
