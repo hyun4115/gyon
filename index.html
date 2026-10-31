@@ -33,7 +33,7 @@
   .opening-logo span { color: #3b9e81; }
 
   .opening p {
-    max-width: 440px;
+    max-width: 460px;
     font-size: 13px;
     line-height: 1.9;
     color: #687c74;
@@ -62,8 +62,7 @@
 </style>
 
 <style id="premiumDesign">
-  /* ────────── 기본 디자인 ────────── */
-
+  /* 기본 디자인 */
   :root {
     --ink: #182f3b;
     --muted: #687a7b;
@@ -105,16 +104,10 @@
     padding: 11px 17px;
     font-size: 13px;
     font-weight: 700;
-    transition:
-      background .2s,
-      transform .2s,
-      box-shadow .2s;
+    transition: background .2s, transform .2s, box-shadow .2s;
   }
 
-  .btn.soft {
-    background: #eaf2eb;
-    color: #315e4b;
-  }
+  .btn.soft { background: #eaf2eb; color: #315e4b; }
 
   .btn.white {
     background: #fff;
@@ -122,18 +115,14 @@
     border: 1px solid #dfe7e2;
   }
 
-  .btn.danger {
-    background: #fff0ef;
-    color: #a7413e;
-  }
+  .btn.danger { background: #fff0ef; color: #a7413e; }
 
   .btn:hover:not(:disabled) {
     transform: translateY(-2px);
     box-shadow: 0 5px 14px #193c3510;
   }
 
-  button:focus-visible,
-  a:focus-visible {
+  button:focus-visible, a:focus-visible {
     outline: 3px solid #60b68d;
     outline-offset: 4px;
   }
@@ -151,22 +140,14 @@
     box-shadow: 0 0 0 3px #68a78c18;
   }
 
-  /* ────────── 헤더 ────────── */
-
+  /* 헤더 */
   .header {
     background: #fdfefb;
     border-bottom: 1px solid #e6ece6;
   }
 
-  .top {
-    height: 92px;
-    gap: 20px;
-  }
-
-  .logo {
-    width: 141px;
-    height: 39px;
-  }
+  .top { height: 92px; gap: 20px; }
+  .logo { width: 141px; height: 39px; }
 
   .tagline {
     margin-top: 1px;
@@ -200,9 +181,9 @@
     border-radius: 100px;
   }
 
-  /* ────────── 첫 화면 ────────── */
-
+  /* 첫 화면 */
   .hero {
+    position: relative;
     display: grid;
     grid-template-columns: 1.45fr 1fr;
     align-items: center;
@@ -315,16 +296,8 @@
     transform: translateY(-2px);
   }
 
-  .hero-cta span {
-    font-size: 19px;
-    font-weight: 400;
-  }
-
-  .hero-small {
-    color: #9ab0b7;
-    font-size: 10px;
-    letter-spacing: .1px;
-  }
+  .hero-cta span { font-size: 19px; font-weight: 400; }
+  .hero-small { color: #9ab0b7; font-size: 10px; }
 
   .stats {
     display: flex;
@@ -340,10 +313,7 @@
     border-left: 1px solid #ffffff18;
   }
 
-  .stats > span:first-child {
-    border: 0;
-    padding-left: 0;
-  }
+  .stats > span:first-child { border: 0; padding-left: 0; }
 
   .stats b {
     margin-right: 5px;
@@ -352,8 +322,7 @@
     font-weight: 700;
   }
 
-  /* ────────── 캐릭터 쇼케이스 ────────── */
-
+  /* 캐릭터 */
   .hero-art {
     position: relative;
     display: grid;
@@ -420,7 +389,6 @@
     bottom: 4px;
     left: 1px;
     right: auto;
-    padding: 10px 14px;
     background: #e9efb3;
     color: #536033;
     border-color: transparent;
@@ -437,8 +405,7 @@
     writing-mode: vertical-rl;
   }
 
-  /* ────────── 검색 영역 ────────── */
-
+  /* 검색 */
   .filters {
     position: relative;
     margin: -23px 29px 0;
@@ -559,8 +526,7 @@
     font-size: 12px;
   }
 
-  /* ────────── 서비스 메뉴 ────────── */
-
+  /* 메뉴 */
   .nav {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -614,21 +580,15 @@
   }
 
   .nav button.active::before,
-  .nav button.active::after {
-    color: #aed7b9;
-  }
+  .nav button.active::after { color: #aed7b9; }
 
   .nav button:hover:not(.active) {
     background: #e8f0e4;
     border-color: #c4d6c3;
   }
 
-  /* ────────── 연결 상태 ────────── */
-
-  .connection-line {
-    margin-top: 15px;
-    gap: 10px;
-  }
+  /* 연결 상태 */
+  .connection-line { margin-top: 15px; gap: 10px; }
 
   .connection {
     padding: 7px 10px;
@@ -639,10 +599,7 @@
     overflow-wrap: anywhere;
   }
 
-  .connection.error {
-    background: #fff0e9;
-    color: #9c4a36;
-  }
+  .connection.error { background: #fff0e9; color: #9c4a36; }
 
   #reloadButton {
     padding: 6px 9px;
@@ -652,15 +609,14 @@
     font-size: 10px;
   }
 
-  /* ────────── 콘텐츠 카드 ────────── */
-
+  /* 카드 */
   .section-title {
     align-items: flex-end;
     gap: 15px;
     margin: 34px 0 21px;
   }
 
-  .section-title .section-kicker {
+  .section-kicker {
     margin-bottom: 6px;
     color: #6f8a76;
     font-size: 8px;
@@ -704,10 +660,7 @@
     border-radius: 15px;
     background: #fff;
     box-shadow: none;
-    transition:
-      transform .2s,
-      box-shadow .2s,
-      border-color .2s;
+    transition: transform .2s, box-shadow .2s, border-color .2s;
   }
 
   .card:hover {
@@ -727,15 +680,8 @@
     letter-spacing: .1px;
   }
 
-  .badge.green {
-    background: #eaf4ed;
-    color: #4c7b5d;
-  }
-
-  .badge.pink {
-    background: #fff0e7;
-    color: #99613b;
-  }
+  .badge.green { background: #eaf4ed; color: #4c7b5d; }
+  .badge.pink { background: #fff0e7; color: #99613b; }
 
   .card h3 {
     color: #294035;
@@ -747,17 +693,8 @@
     overflow-wrap: anywhere;
   }
 
-  .card p {
-    color: #6e8074;
-    font-size: 12px;
-    line-height: 1.9;
-  }
-
-  .meta {
-    color: #6c8372;
-    font-size: 10px;
-    line-height: 1.8;
-  }
+  .card p { color: #6e8074; font-size: 12px; line-height: 1.9; }
+  .meta { color: #6c8372; font-size: 10px; line-height: 1.8; }
 
   .card .bottom {
     gap: 10px;
@@ -787,17 +724,12 @@
     letter-spacing: -1px;
   }
 
-  .card img,
-  .placeholder {
+  .card img, .placeholder {
     border-radius: 10px;
     background: #edf4e8;
   }
 
-  .features {
-    color: #627c69;
-    font-size: 12px;
-    line-height: 2;
-  }
+  .features { color: #627c69; font-size: 12px; line-height: 2; }
 
   .empty {
     padding: 62px 22px;
@@ -809,8 +741,15 @@
     line-height: 2;
   }
 
-  /* ────────── 하단 브랜드 영역 ────────── */
+  .event-period {
+    padding: 10px 12px;
+    background: #edf4e9;
+    border-radius: 8px;
+    font-weight: 700;
+    overflow-wrap: anywhere;
+  }
 
+  /* 하단 브랜드 영역 */
   .brand-note {
     display: flex;
     align-items: center;
@@ -839,10 +778,7 @@
     letter-spacing: -1px;
   }
 
-  .brand-note p {
-    color: #69805f;
-    font-size: 11px;
-  }
+  .brand-note p { color: #69805f; font-size: 11px; }
 
   .note-action {
     display: grid;
@@ -873,13 +809,9 @@
     font-size: 10px;
   }
 
-  .footer-logo {
-    width: 96px;
-    height: 29px;
-  }
+  .footer-logo { width: 96px; height: 29px; }
 
-  /* ────────── 관리자·상세·가상 결제 ────────── */
-
+  /* 관리자·상세·가상 결제 */
   .admin {
     background: #edf4e8;
     border: 1px solid #d3e1ca;
@@ -905,20 +837,10 @@
   }
 
   .dialog-inner { padding: 29px; }
+  .dialog-head h2 { color: #294434; font-size: 22px; }
+  .close { background: #edf3e7; color: #536d48; }
 
-  .dialog-head h2 {
-    color: #294434;
-    font-size: 22px;
-  }
-
-  .close {
-    background: #edf3e7;
-    color: #536d48;
-  }
-
-  .checkout-summary,
-  .receipt-table,
-  .note {
+  .checkout-summary, .receipt-table, .note {
     background: #eff4e9;
   }
 
@@ -930,20 +852,11 @@
   }
 
   .total-line strong { color: #315c39; }
+  .toast { background: #193e35; border-radius: 10px; }
 
-  .toast {
-    background: #193e35;
-    border-radius: 10px;
-  }
+  #localCodebar, .local-codebar { display: none !important; }
 
-  /* 복구 안내 및 코드 도구는 표시하지 않음 */
-  #localCodebar,
-  .local-codebar {
-    display: none !important;
-  }
-
-  /* ────────── 태블릿 ────────── */
-
+  /* 태블릿 */
   @media (max-width: 960px) {
     .wrap { padding: 0 25px; }
 
@@ -954,35 +867,13 @@
       min-height: 430px;
     }
 
-    .hero h1 {
-      font-size: 41px;
-      letter-spacing: -2.4px;
-    }
-
-    .hero-art {
-      height: 290px;
-      min-height: 290px;
-      transform: none;
-    }
-
-    .hero-art::before {
-      width: 218px;
-      height: 267px;
-    }
-
-    .hero-art .mascot {
-      width: 174px;
-      height: 231px;
-    }
-
+    .hero h1 { font-size: 41px; letter-spacing: -2.4px; }
+    .hero-art { height: 290px; min-height: 290px; }
+    .hero-art::before { width: 218px; height: 267px; }
+    .hero-art .mascot { width: 174px; height: 231px; }
     .hero-art .float { font-size: 9px; }
-
-    .hero-art .float.bottom {
-      bottom: 0;
-      left: -5px;
-    }
-
-    .art-label { display: none; }
+    .hero-art .float.bottom { bottom: 0; left: -5px; }
+    .art-label, .header-message { display: none; }
 
     .nav button {
       min-height: 65px;
@@ -991,34 +882,16 @@
       font-size: 11px;
     }
 
-    .cards {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    .header-message { display: none; }
+    .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   }
 
-  /* ────────── 모바일 ────────── */
-
+  /* 모바일 */
   @media (max-width: 600px) {
     .wrap { padding: 0 16px; }
-
-    .top {
-      height: 75px;
-      gap: 12px;
-    }
-
-    .logo {
-      width: 117px;
-      height: 34px;
-    }
-
+    .top { height: 75px; gap: 12px; }
+    .logo { width: 117px; height: 34px; }
     .tagline { display: none; }
-
-    #adminButton {
-      padding: 8px 11px;
-      font-size: 10px;
-    }
+    #adminButton { padding: 8px 11px; font-size: 10px; }
 
     .hero {
       display: block;
@@ -1040,39 +913,18 @@
       line-height: 1.35;
     }
 
-    .hero p {
-      margin-top: 17px;
-      font-size: 12px;
-      line-height: 1.9;
-    }
-
-    .hero-actions {
-      margin-top: 22px;
-      gap: 12px;
-    }
-
-    .hero-cta {
-      padding: 11px 15px;
-      gap: 22px;
-      font-size: 11px;
-    }
-
+    .hero p { margin-top: 17px; font-size: 12px; line-height: 1.9; }
+    .hero-actions { margin-top: 22px; gap: 12px; }
+    .hero-cta { padding: 11px 15px; gap: 22px; font-size: 11px; }
     .hero-small { font-size: 9px; }
-
-    .stats {
-      margin-top: 24px;
-      font-size: 9px;
-    }
-
+    .stats { margin-top: 24px; font-size: 9px; }
     .stats > span { padding: 0 12px; }
     .stats b { font-size: 16px; }
 
     .hero-art {
-      display: grid;
       height: 254px;
       min-height: 254px;
       margin-top: 27px;
-      transform: none;
     }
 
     .hero-art::before {
@@ -1081,11 +933,7 @@
       border-radius: 110px 110px 23px 23px;
     }
 
-    .hero-art::after {
-      top: 38px;
-      right: 13px;
-      font-size: 29px;
-    }
+    .hero-art::after { top: 38px; right: 13px; font-size: 29px; }
 
     .hero-art .mascot {
       width: 163px;
@@ -1100,19 +948,8 @@
       font-size: 9px;
     }
 
-    .hero-art .float.bottom {
-      top: auto;
-      bottom: 1px;
-      left: 0;
-      padding: 9px 10px;
-      font-size: 9px;
-    }
-
-    .hero::after {
-      right: 15px;
-      bottom: -43px;
-      font-size: 175px;
-    }
+    .hero-art .float.bottom { top: auto; bottom: 1px; left: 0; }
+    .hero::after { right: 15px; bottom: -43px; font-size: 175px; }
 
     .filters {
       margin: -16px 7px 0;
@@ -1122,38 +959,15 @@
 
     .search-heading { gap: 8px; }
     .search-heading h2 { font-size: 16px; }
-
-    .search-heading small {
-      font-size: 7px;
-      letter-spacing: 1.2px;
-    }
-
+    .search-heading small { font-size: 7px; letter-spacing: 1.2px; }
     .reset-search { font-size: 10px; }
-
-    .filter-grid {
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-    }
-
-    .filter-grid > div:last-child {
-      grid-column: auto;
-    }
-
-    .filter-grid .keyword-field {
-      grid-column: 1 / -1;
-      grid-row: 1;
-    }
-
-    #search {
-      min-height: 50px;
-      font-size: 12px;
-    }
+    .filter-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+    .filter-grid > div:last-child { grid-column: auto; }
+    .filter-grid .keyword-field { grid-column: 1 / -1; grid-row: 1; }
+    #search { min-height: 50px; font-size: 12px; }
 
     .filter-grid select,
-    .filter-grid input:not(#search) {
-      font-size: 12px;
-      padding: 10px;
-    }
+    .filter-grid input:not(#search) { font-size: 12px; padding: 10px; }
 
     .nav {
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1170,72 +984,23 @@
 
     .nav button::before { font-size: 9px; }
     .nav button::after { font-size: 17px; }
-
-    .connection-line {
-      align-items: flex-start;
-      margin-top: 13px;
-    }
-
-    .connection {
-      padding: 6px 8px;
-      font-size: 9px;
-    }
-
-    #reloadButton {
-      padding: 6px 8px;
-      font-size: 9px;
-    }
-
-    .section-title {
-      margin-top: 29px;
-      margin-bottom: 17px;
-    }
-
+    .connection-line { align-items: flex-start; margin-top: 13px; }
+    .connection { padding: 6px 8px; font-size: 9px; }
+    #reloadButton { padding: 6px 8px; font-size: 9px; }
+    .section-title { margin-top: 29px; margin-bottom: 17px; }
     .section-title h2 { font-size: 22px; }
     .section-title > .badge { display: none; }
-
-    .cards {
-      grid-template-columns: 1fr;
-      gap: 13px;
-    }
-
-    .card {
-      padding: 23px 22px;
-      border-radius: 13px;
-    }
-
+    .cards { grid-template-columns: 1fr; gap: 13px; }
+    .card { padding: 23px 22px; border-radius: 13px; }
     .card h3 { font-size: 17px; }
     .card p { font-size: 13px; }
-    .card .bottom .btn { font-size: 11px; }
-    .meta { font-size: 11px; }
-
-    .brand-note {
-      padding: 25px 23px;
-      gap: 16px;
-      margin-top: 27px;
-    }
-
-    .brand-note small {
-      font-size: 7px;
-      letter-spacing: 1.1px;
-    }
-
+    .card .bottom .btn, .meta { font-size: 11px; }
+    .brand-note { padding: 25px 23px; gap: 16px; margin-top: 27px; }
+    .brand-note small { font-size: 7px; letter-spacing: 1.1px; }
     .brand-note h3 { font-size: 21px; }
     .brand-note p { font-size: 10px; }
-
-    .note-action {
-      width: 44px;
-      height: 44px;
-      font-size: 24px;
-    }
-
-    .footer {
-      gap: 13px;
-      margin-top: 28px;
-      padding-top: 23px;
-      font-size: 9px;
-    }
-
+    .note-action { width: 44px; height: 44px; font-size: 24px; }
+    .footer { gap: 13px; margin-top: 28px; padding-top: 23px; font-size: 9px; }
     .dialog-inner { padding: 22px; }
   }
 
@@ -1262,20 +1027,12 @@
 (() => {
   "use strict";
 
-  /*
-   * 기존 index.html 전체를 이 코드로 교체하면 돼.
-   *
-   * 네 GitHub의 고정된 전체 버전을 불러온 뒤 디자인을 적용해.
-   * 기존 등록·수정·저장 오류 확인·가상 결제 기능을 유지해.
-   * 사이트를 여는 데 인터넷 연결이 필요해.
-   */
-
+  // 기존 기능이 들어 있는 고정 버전입니다.
   const revision = "e85117637a6c933f4d15e62887ac2690277ab7ae";
 
   const sourceURL =
     "https://raw.githubusercontent.com/hyun4115/gyon/" +
-    revision +
-    "/index.html";
+    revision + "/index.html";
 
   const fallbackURL =
     "https://api.github.com/repos/hyun4115/gyon/contents/index.html?ref=" +
@@ -1286,6 +1043,9 @@
 
   let loading = false;
 
+  // ========================================
+  // 원본 코드 불러오기
+  // ========================================
   async function request(url, asJSON = false) {
     const controller = new AbortController();
     const timer = setTimeout(() => controller.abort(), 15000);
@@ -1310,17 +1070,11 @@
   }
 
   function parseSource(html) {
-    if (
-      typeof html !== "string" ||
-      html.length < 10000
-    ) {
+    if (typeof html !== "string" || html.length < 10000) {
       throw new Error("전체 사이트 코드를 받지 못했어요.");
     }
 
-    const page = new DOMParser().parseFromString(
-      html,
-      "text/html"
-    );
+    const page = new DOMParser().parseFromString(html, "text/html");
 
     const required = [
       ".top",
@@ -1340,7 +1094,8 @@
       "#adminButton",
       "#connection",
       "#editForm",
-      "#checkoutForm"
+      "#checkoutForm",
+      "#fields"
     ];
 
     if (required.some(selector => !page.querySelector(selector))) {
@@ -1354,7 +1109,6 @@
     try {
       return parseSource(await request(sourceURL));
     } catch (firstError) {
-      // 원본 주소에 연결되지 않으면 GitHub API로 재시도.
       const result = await request(fallbackURL, true);
 
       if (
@@ -1365,7 +1119,6 @@
       }
 
       const binary = atob(result.content.replace(/\s/g, ""));
-
       const bytes = Uint8Array.from(
         binary,
         character => character.charCodeAt(0)
@@ -1375,7 +1128,244 @@
     }
   }
 
-  // 기존 사이트의 스크립트 실행 뒤 추가 버튼을 연결.
+  // ========================================
+  // 기존 기능에 지역 선택·할인 기간 추가
+  // ========================================
+  function patchFeatures(page) {
+    const script = [...page.querySelectorAll("script")].find(
+      element =>
+        element.textContent.includes("function openEditor(") &&
+        element.textContent.includes("function regionMap()")
+    );
+
+    if (!script) {
+      throw new Error("관리자 기능 코드를 찾지 못했어요.");
+    }
+
+    let code = script.textContent.replace(/\r\n?/g, "\n");
+
+    // 정확히 한 곳만 변경하도록 확인합니다.
+    function replaceOnce(before, after) {
+      const index = code.indexOf(before);
+
+      if (
+        index < 0 ||
+        code.indexOf(before, index + before.length) >= 0
+      ) {
+        throw new Error(
+          "기능 업데이트 위치를 확인하지 못했어요. 다시 불러와 주세요."
+        );
+      }
+
+      code =
+        code.slice(0, index) +
+        after +
+        code.slice(index + before.length);
+    }
+
+    // 이 함수들은 기존 기능 스크립트 안에 들어갑니다.
+    const helpers = String.raw`
+      // 등록된 시/군·동/면 선택창
+      function regionSelect(name, label, options, selected = "") {
+        return '<div>' +
+          '<label for="f-' + name + '">' + label + '</label>' +
+          '<select id="f-' + name + '" name="' + name + '" required>' +
+          '<option value="">' + label + ' 선택</option>' +
+          options.map(value =>
+            '<option value="' + escapeHTML(value) + '"' +
+            (value === selected ? ' selected' : '') + '>' +
+            escapeHTML(value) + '</option>'
+          ).join("") +
+          '</select></div>';
+      }
+
+      // 시/군 변경 시 해당 동/면만 표시
+      function fillEditorDongs(selected = "") {
+        const region = $("f-region").value;
+        const select = $("f-dong");
+        const options = regionMap()[region] || [];
+
+        select.innerHTML =
+          '<option value="">동 / 면 선택</option>' +
+          options.map(value =>
+            '<option value="' + escapeHTML(value) + '">' +
+            escapeHTML(value) + '</option>'
+          ).join("");
+
+        select.value = options.includes(selected) ? selected : "";
+        select.disabled = !region;
+      }
+
+      // YYYY-MM-DD 형식과 실제 존재하는 날짜 확인
+      function validEventDate(value) {
+        if (!/^\d{4}-\d{2}-\d{2}$/.test(value || "")) {
+          return false;
+        }
+
+        const date = new Date(value + "T00:00:00Z");
+
+        return !Number.isNaN(date.getTime()) &&
+          date.toISOString().slice(0, 10) === value;
+      }
+
+      // 할인 기간 저장 전 검증
+      function validateEventDates(item) {
+        if (
+          !validEventDate(item.startDate) ||
+          !validEventDate(item.endDate)
+        ) {
+          throw new Error(
+            "특별할인의 시작일과 종료일을 모두 선택해 주세요."
+          );
+        }
+
+        if (item.endDate < item.startDate) {
+          throw new Error(
+            "종료일은 시작일과 같거나 이후여야 해요."
+          );
+        }
+      }
+
+      // 카드·상세 화면의 기간 표시
+      function eventPeriod(item) {
+        if (
+          !validEventDate(item.startDate) ||
+          !validEventDate(item.endDate)
+        ) {
+          return "할인 기간 미설정";
+        }
+
+        return "할인 기간: " +
+          item.startDate.replaceAll("-", ".") +
+          " ~ " +
+          item.endDate.replaceAll("-", ".");
+      }
+    `;
+
+    replaceOnce(
+      "function regionMap() {",
+      helpers + "\nfunction regionMap() {"
+    );
+
+    // 시/군·동/면 자유 입력칸을 선택창으로 변경
+    replaceOnce(
+`            field(
+                "region",
+                "시 / 군",
+                item.region || "고양시"
+            ) +
+            field(
+                "dong",
+                "동 / 면",
+                item.dong || "식사동"
+            ) +`,
+`            regionSelect(
+                "region",
+                "시 / 군",
+                Object.keys(regionMap()),
+                item.region || ""
+            ) +
+            regionSelect(
+                "dong",
+                "동 / 면",
+                regionMap()[item.region] || [],
+                item.dong || ""
+            ) +`
+    );
+
+    // 특별할인 등록·수정에 날짜 선택 추가
+    replaceOnce(
+`    $("fields").innerHTML = html;
+    $("editError").hidden = true;`,
+`    if (key === "eventData") {
+        html +=
+            field(
+                "startDate",
+                "할인 시작일",
+                item.startDate || "",
+                "date"
+            ) +
+            field(
+                "endDate",
+                "할인 종료일",
+                item.endDate || "",
+                "date"
+            ) +
+            '<p class="full muted">' +
+            '시작일과 종료일을 포함한 할인 기간이에요. ' +
+            '종료일은 시작일보다 빠를 수 없어요.' +
+            '</p>';
+    }
+
+    $("fields").innerHTML = html;
+
+    if (["mainData", "eventData"].includes(key)) {
+        fillEditorDongs(item.dong || "");
+
+        $("f-region").addEventListener(
+            "change",
+            () => fillEditorDongs()
+        );
+    }
+
+    if (key === "eventData") {
+        const start = $("f-startDate");
+        const end = $("f-endDate");
+
+        start.required = true;
+        end.required = true;
+        end.min = start.value;
+
+        start.addEventListener("input", () => {
+            end.min = start.value;
+        });
+    }
+
+    $("editError").hidden = true;`
+    );
+
+    // 선택한 지역 및 할인 기간 확인 후 기존 저장 기능 실행
+    replaceOnce(
+`            item.ageMin = Number(item.ageMin);`,
+`            if (!(regionMap()[item.region] || []).includes(item.dong)) {
+                throw new Error(
+                    "등록된 시 / 군과 해당 동 / 면을 선택해 주세요."
+                );
+            }
+
+            if (context.key === "eventData") {
+                validateEventDates(item);
+            }
+
+            item.ageMin = Number(item.ageMin);`
+    );
+
+    // 할인 카드에 기간 추가
+    replaceOnce(
+'                ${featuresHTML}\n\n                <div class="bottom">',
+'                ${featuresHTML}\n' +
+'                ${tab === "eventData" ? ' +
+'\'<p class="event-period">\' + ' +
+'escapeHTML(eventPeriod(item)) + \'</p>\' : ""}\n\n' +
+'                <div class="bottom">'
+    );
+
+    // 상세 화면에 기간 추가
+    replaceOnce(
+'    $("detailLink").hidden = !link;',
+`    if (tab === "eventData") {
+        $("detailMeta").textContent += " · " + eventPeriod(item);
+    }
+
+    $("detailLink").hidden = !link;`
+    );
+
+    script.textContent = code;
+  }
+
+  // ========================================
+  // 추가 버튼 연결
+  // ========================================
   function connectDesign() {
     const reset = document.getElementById("resetSearch");
 
@@ -1419,10 +1409,12 @@
     });
   }
 
+  // ========================================
+  // 디자인 적용
+  // ========================================
   function redesign(page) {
     page.title = "GY:ON — 나의 가능성을 켜다";
 
-    // 기존 기능과 기본 스타일 위에 새 디자인만 적용.
     const style = page.createElement("style");
     style.textContent = designCSS;
     page.head.appendChild(style);
@@ -1437,21 +1429,23 @@
 
     theme.content = "#10232e";
 
-    // 헤더.
+    // 헤더
     const top = page.querySelector(".top");
     const headerMessage = page.createElement("span");
 
     headerMessage.className = "header-message";
-    headerMessage.textContent = "청소년과 지역을 연결하는 기회의 네트워크";
+    headerMessage.textContent =
+      "청소년과 지역을 연결하는 기회의 네트워크";
 
     top.insertBefore(
       headerMessage,
       page.getElementById("adminButton")
     );
 
-    page.getElementById("adminButton").textContent = "콘텐츠 관리 ↗";
+    page.getElementById("adminButton").textContent =
+      "콘텐츠 관리 ↗";
 
-    // 메인 소개.
+    // 첫 화면
     const hero = page.querySelector(".hero");
     const heroCopy = hero.firstElementChild;
 
@@ -1471,22 +1465,16 @@
     actions.className = "hero-actions";
 
     actions.innerHTML = `
-      <button
-        type="button"
-        class="hero-cta browse-trigger"
-      >
+      <button type="button" class="hero-cta browse-trigger">
         나에게 맞는 혜택 찾기
         <span aria-hidden="true">↗</span>
       </button>
       <span class="hero-small">너의 다음 시작, GY:ON</span>
     `;
 
-    heroCopy.insertBefore(
-      actions,
-      page.getElementById("stats")
-    );
+    heroCopy.insertBefore(actions, page.getElementById("stats"));
 
-    // 기존 SVG 캐릭터 유지.
+    // 기존 캐릭터 유지
     const heroArt = page.querySelector(".hero-art");
     const floating = heroArt.querySelectorAll(".float");
 
@@ -1503,7 +1491,7 @@
     artLabel.textContent = "MEET YOUR NEXT OPPORTUNITY";
     heroArt.appendChild(artLabel);
 
-    // 검색창을 메인 아래로 배치.
+    // 검색창
     const filters = page.getElementById("filters");
     hero.after(filters);
 
@@ -1530,7 +1518,7 @@
 
     page.getElementById("age").placeholder = "선택 입력";
 
-    // 기존 메뉴의 data-tab과 이벤트는 유지.
+    // 메뉴
     const menuLabels = {
       mainData: "정책 · 동네 혜택",
       eventData: "특별 할인",
@@ -1553,12 +1541,11 @@
       }
     );
 
-    // 서버 연결 상태와 저장 실패 안내는 숨기지 않음.
     page.getElementById("connection").parentElement.classList.add(
       "connection-line"
     );
 
-    // 목록 제목의 작은 분류 문구.
+    // 콘텐츠 제목
     const sectionTitle = page.querySelector(".section-title");
     const kicker = page.createElement("div");
 
@@ -1566,7 +1553,7 @@
     kicker.textContent = "DISCOVER WHAT’S NEXT";
     sectionTitle.firstElementChild.prepend(kicker);
 
-    // 하단 브랜드 영역.
+    // 하단 브랜드 영역
     const brandNote = page.createElement("section");
     brandNote.className = "brand-note";
 
@@ -1576,7 +1563,6 @@
         <h3>다음 기회는,<br>생각보다 가까이에.</h3>
         <p>청소년의 오늘과 지역의 가능성을 연결해.</p>
       </div>
-
       <button
         type="button"
         class="note-action browse-trigger"
@@ -1586,17 +1572,18 @@
 
     page.getElementById("cards").after(brandNote);
 
-    // 기존 기능 스크립트 다음에 추가 버튼 동작만 실행.
+    // 기존 기능이 실행된 다음 추가 버튼 연결
     const enhancement = page.createElement("script");
-
     enhancement.textContent =
       "(" + connectDesign.toString() + ")();";
-
     page.body.appendChild(enhancement);
 
     return "<!DOCTYPE html>\n" + page.documentElement.outerHTML;
   }
 
+  // ========================================
+  // 시작
+  // ========================================
   async function start() {
     if (loading) return;
     loading = true;
@@ -1611,6 +1598,11 @@
 
     try {
       const page = await loadSource();
+
+      // 등록된 지역 선택 + 특별할인 기간
+      patchFeatures(page);
+
+      // 네이비·민트 디자인
       html = redesign(page);
     } catch (error) {
       loading = false;
@@ -1628,7 +1620,6 @@
       return;
     }
 
-    // 복구 안내 팝업 없이 전체 사이트 표시.
     document.open();
     document.write(html);
     document.close();
