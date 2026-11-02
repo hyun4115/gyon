@@ -1,3 +1,12 @@
+
+
+
+
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -1210,7 +1219,7 @@ dialog::backdrop {
     }
 
     /*
-     * 기존의 작은 420px 압축 대신 최대 1300px로 저장합니다.
+     * 원본 비율을 유지하면서 최대 1800px, 고품질로 저장합니다.
      * 사진 비율을 유지하며 흰 배경으로 처리합니다.
      */
     compressImage = async function(file) {
@@ -1239,7 +1248,7 @@ dialog::backdrop {
 
         const scale = Math.min(
           1,
-          1300 / Math.max(
+          1800 / Math.max(
             image.naturalWidth,
             image.naturalHeight
           )
@@ -1283,13 +1292,13 @@ dialog::backdrop {
 
         let result = canvas.toDataURL(
           "image/webp",
-          0.86
+          0.92
         );
 
         if (!result.startsWith("data:image/webp")) {
           result = canvas.toDataURL(
             "image/jpeg",
-            0.86
+            0.92
           );
         }
 
@@ -2862,3 +2871,7 @@ dialog::backdrop {
 </script>
 </body>
 </html>
+
+
+⋮⋮⋮⋮
+⋮⋮⋮⋮
